@@ -13,26 +13,38 @@ public class MainActivity extends AppCompatActivity {
 
     Animation rotationAnimation;
     ImageView imageView;
-    Button button;
+    Button buttonON , buttonOFF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.kipasBlade);
-        button = findViewById(R.id.buttonOn);
+        buttonON = findViewById(R.id.buttonOn);
+        buttonOFF = findViewById(R.id.buttonOFF);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rotateAnimation();
+                StartRotateAnimation();
+            }
+        });
+
+        buttonOFF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StopRotateAnimation();
             }
         });
 
     }
 
-    private void rotateAnimation() {
+    private void StartRotateAnimation() {
         rotationAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate_animation);
         imageView.startAnimation(rotationAnimation);
+    }
+
+    private void StopRotateAnimation() {
+        imageView.clearAnimation();
     }
 }
