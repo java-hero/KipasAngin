@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
     private void StartRotateAnimation() {
         rotationAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate_animation);
         imageView.startAnimation(rotationAnimation);
+        Toast.makeText(this, "Kipas Nyala", Toast.LENGTH_SHORT).show();
     }
 
     private void StopRotateAnimation() {
         imageView.clearAnimation();
+        Toast.makeText(this, "Kipas Mati", Toast.LENGTH_SHORT).show();
     }
 }
